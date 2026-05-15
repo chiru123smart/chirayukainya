@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
 const NAVY="#0f1923",NAVY2="#162231",NAVY3="#1c2d3f",ACCENT="#1a3c5e",BLUE="#2b6cb0",GOLD="#d4a853",TEXT="#e2e8f0",DIM="#94a3b8";
-const GEMINI_KEY="AIzaSyCIv1va_dTSd5yb0CehfPWKXjKBe_IUKr8";
+const GEMINI_KEY=import.meta.env.VITE_GEMINI_KEY||"";
 
 const chatContext=`You are Chirayu Kainya's AI assistant on his personal website. Be conversational, warm, concise.
 
 ABOUT CHIRAYU:
-Product Manager at Fynd (Reliance Retail) with 8.5 years experience. AI-Native Business Leader & Data-Driven Retail Strategist.
+Product Manager at Fynd (Reliance Retail) with 8+ years experience. AI-Native Business Leader & Data-Driven Retail Strategist.
 
 PERSONALITY: Proactive builder who automates before being asked. Operates above his title. Doesn't escalate — solves. Learns on the ground visiting stores weekly. Colleagues say "he leaves no stones unturned." Deeply technical (SSH into databases, debug pipelines, write Python) but also strategic (presents to leadership, manages vendors, aligns 4+ cross-functional teams).
 
@@ -121,7 +121,6 @@ export default function App(){
 
   return(
     <div style={{background:NAVY,color:TEXT,fontFamily:"'Outfit',sans-serif",minHeight:"100vh"}}>
-      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
       <style>{`
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         ::selection{background:${GOLD}44;color:${GOLD}}
@@ -180,7 +179,7 @@ export default function App(){
             </div>
           </div>
           <div className="hero-text" style={{textAlign:"left",flex:1,minWidth:280}}>
-            <div style={{fontSize:13,fontWeight:500,color:GOLD,letterSpacing:4,textTransform:"uppercase",marginBottom:16}}>Merchandising · Customer Experience · Operations</div>
+            <div style={{fontSize:13,fontWeight:500,color:GOLD,letterSpacing:4,textTransform:"uppercase",marginBottom:16}}>Merchandise Planning · Digital Twins · Store Operations</div>
             <h1 style={{fontSize:"clamp(36px,5vw,56px)",fontWeight:800,lineHeight:1.1,marginBottom:16}}>Chirayu <span style={{color:GOLD}}>Kainya</span></h1>
             <p style={{fontSize:"clamp(16px,2.5vw,20px)",fontWeight:300,color:DIM,marginBottom:32}}>AI-Native Business Leader  |  Data-Driven Retail Strategist</p>
             <div className="hero-buttons" style={{display:"flex",gap:12,flexWrap:"wrap"}}>
@@ -217,7 +216,7 @@ export default function App(){
           <h2 style={{fontSize:"clamp(28px,4vw,40px)",fontWeight:700,marginBottom:32,lineHeight:1.2}}>I build technology for <span style={{color:GOLD}}>physical retail</span></h2>
           <div style={{fontSize:17,lineHeight:2,color:DIM}}>
             <p style={{marginBottom:20}}>Most people think retail is just stores and shelves. I see it as a massive data problem — where every product on every fixture in every store is a decision that can be optimized.</p>
-            <p style={{marginBottom:20}}>Over 8.5 years, I've moved from building <strong style={{color:TEXT}}>predictive models for global logistics companies</strong>, to <strong style={{color:TEXT}}>recovering $25 million in lost warehouse inventory</strong>, to now leading the <strong style={{color:TEXT}}>digital transformation of 2,000+ retail stores</strong>.</p>
+            <p style={{marginBottom:20}}>Over 8+ years, I moved from building <strong style={{color:TEXT}}>predictive models for global logistics companies</strong>, to <strong style={{color:TEXT}}>recovering $25 million in lost warehouse inventory</strong>, to now leading the <strong style={{color:TEXT}}>digital transformation of 2,000+ retail stores</strong>.</p>
             <p style={{marginBottom:20}}>My current work: I've built <strong style={{color:TEXT}}>Digital Twins</strong> of physical stores, <strong style={{color:TEXT}}>automated store audits</strong> using computer vision and RFID, and created an <strong style={{color:TEXT}}>AI agent</strong> that scans competitor data and recommends how stores should rearrange their shelves for better sales.</p>
             <p>I learn by being on the ground — visiting stores weekly, sitting with merchandisers, understanding how things actually work.</p>
           </div>
@@ -228,7 +227,7 @@ export default function App(){
       <section id="work" className="section-pad" style={{padding:"100px 32px",background:NAVY2}}>
         <div style={{maxWidth:1200,margin:"0 auto"}}>
           <p style={{fontSize:13,color:GOLD,letterSpacing:4,textTransform:"uppercase",marginBottom:8}}>Work</p>
-          <h2 style={{fontSize:"clamp(28px,4vw,40px)",fontWeight:700,marginBottom:12}}>8.5 years of building <span style={{color:GOLD}}>what didn't exist</span></h2>
+          <h2 style={{fontSize:"clamp(28px,4vw,40px)",fontWeight:700,marginBottom:12}}>8+ years of building <span style={{color:GOLD}}>what didn't exist</span></h2>
           <p style={{fontSize:15,color:DIM,marginBottom:32}}>Select a period to explore what I built ↓</p>
 
           {/* Horizontal year cards */}
@@ -240,7 +239,7 @@ export default function App(){
                 <div style={{fontSize:13,fontFamily:"'JetBrains Mono',monospace",color:era.color,fontWeight:600,marginBottom:8}}>{era.year}</div>
                 <div style={{fontSize:13,fontWeight:700,color:TEXT,marginBottom:4}}>{era.role}</div>
                 <div style={{fontSize:11,color:DIM,lineHeight:1.4}}>{era.company}</div>
-                {activeYear!==i&&<div style={{fontSize:14,color:`${era.color}66`,marginTop:10,animation:"pulse 2s infinite"}}>▼</div>}
+                {activeYear!==i&&<div style={{fontSize:14,color:`${era.color}44`,marginTop:10}}>▼</div>}
                 {activeYear===i&&<div style={{width:24,height:3,background:era.color,borderRadius:2,margin:"10px auto 0"}}/>}
               </div>
             ))}
@@ -321,7 +320,7 @@ export default function App(){
       <footer style={{padding:"28px 32px",borderTop:`1px solid ${ACCENT}22`,textAlign:"center"}}><p style={{fontSize:12,color:DIM}}>© 2026 Chirayu Kainya. Built with intent.</p></footer>
 
       {/* CHAT FAB */}
-      {!chatOpen&&<button onClick={()=>setChatOpen(true)} style={{position:"fixed",bottom:24,right:24,width:52,height:52,borderRadius:"50%",background:GOLD,color:NAVY,border:"none",fontSize:22,cursor:"pointer",boxShadow:`0 4px 20px ${GOLD}44`,zIndex:200,display:"flex",alignItems:"center",justifyContent:"center"}}>💬</button>}
+      {!chatOpen&&<button onClick={()=>setChatOpen(true)} style={{position:"fixed",bottom:24,right:24,width:52,height:52,borderRadius:"50%",background:GOLD,color:NAVY,border:"none",fontSize:22,cursor:"pointer",boxShadow:`0 4px 20px ${GOLD}44`,zIndex:200,display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>}
 
       {/* CHAT */}
       {chatOpen&&(
