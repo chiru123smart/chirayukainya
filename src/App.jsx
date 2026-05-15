@@ -236,7 +236,7 @@ export default function App(){
               <div key={i} className={`year-card ${activeYear===i?"active":""}`}
                 onClick={()=>{setActiveYear(activeYear===i?null:i);setActiveProject(null);}}
                 style={{borderColor:activeYear===i?era.color:`${ACCENT}33`,boxShadow:activeYear===i?`0 4px 20px ${era.color}25`:"none"}}>
-                <div style={{fontSize:13,fontFamily:"'JetBrains Mono',monospace",color:era.color,fontWeight:600,marginBottom:8}}>{era.year}</div>
+                <div style={{fontSize:13,fontWeight:600,color:era.color,fontWeight:600,marginBottom:8}}>{era.year}</div>
                 <div style={{fontSize:13,fontWeight:700,color:TEXT,marginBottom:4}}>{era.role}</div>
                 <div style={{fontSize:11,color:DIM,lineHeight:1.4}}>{era.company}</div>
                 {activeYear!==i&&<div style={{fontSize:14,color:`${era.color}44`,marginTop:10}}>▼</div>}
@@ -259,7 +259,7 @@ export default function App(){
                         <span style={{fontSize:15,color:era.color,marginLeft:12,fontWeight:500}}>{era.company}</span>
                         <span style={{fontSize:13,color:DIM,marginLeft:12}}>{era.location}</span>
                       </div>
-                      <span style={{fontSize:14,fontFamily:"'JetBrains Mono',monospace",color:era.color}}>{era.year}</span>
+                      <span style={{fontSize:14,fontWeight:600,color:era.color}}>{era.year}</span>
                     </div>
                     <p style={{fontSize:15,color:DIM,lineHeight:1.7,marginBottom:24}}>{era.summary}</p>
 
@@ -340,7 +340,7 @@ export default function App(){
           </div>
           <div style={{padding:"10px 14px",borderTop:`1px solid ${ACCENT}33`,display:"flex",gap:8}}>
             <input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==="Enter"&&send()} placeholder="Ask anything about Chirayu..." style={{flex:1,padding:"10px 14px",background:NAVY,border:`1px solid ${ACCENT}44`,borderRadius:10,color:TEXT,fontSize:13,fontFamily:"inherit",outline:"none"}}/>
-            <button onClick={send} disabled={loading} style={{padding:"10px 16px",background:GOLD,color:NAVY,border:"none",borderRadius:10,fontWeight:600,cursor:"pointer",fontSize:13,opacity:loading?.5:1}}>Send</button>
+            <button onClick={send} disabled={loading} style={{padding:"10px 16px",background:GOLD,color:NAVY,border:"none",borderRadius:10,fontWeight:600,cursor:"pointer",fontSize:13,fontFamily:"inherit",opacity:loading?.5:1}}>Send</button>
           </div>
         </div>
       )}
